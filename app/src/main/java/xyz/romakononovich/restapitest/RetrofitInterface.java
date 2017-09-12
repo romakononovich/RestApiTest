@@ -4,6 +4,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import xyz.romakononovich.restapitest.model.Post;
 
 /**
@@ -13,4 +14,8 @@ import xyz.romakononovich.restapitest.model.Post;
 public interface RetrofitInterface {
     @GET("/posts")
     Call<List<Post>> listPosts();
+
+    @GET("/posts/{postId}/comments")
+    Call<List<Post>> listComments(@Path("postId") String postId);
+
 }
